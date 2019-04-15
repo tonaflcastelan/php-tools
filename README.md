@@ -9,3 +9,4 @@ Contiene funciones genéricas para el uso general de proyectos
 * getDifferenceBetweenDates
 * getTimeAgo
 * setSizeString
+* spanishDate
