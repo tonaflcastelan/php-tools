@@ -98,4 +98,27 @@ class Tools
 
         return $string;
     }
+
+    /**
+     * @method spanishDate
+     * @description Convierte una fecha a español (día y mes)
+     * @param (string) $date
+     * @return (string) $date (Ejemplo: Sábado 28 de Septiembre, 1989)
+     */
+    public static function spanishDate($date)
+    {
+        if (empty($date)) {
+            return;
+        }
+
+        $weekDay    = date('w', strtotime($date));
+        $day        = date('d', strtotime($date));
+        $month      = date('n', strtotime($date));
+        $year       = date('Y', strtotime($date));
+
+        $days       = array('Domingo', 'Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sábado');
+        $months     = array('Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre');
+
+        return $days[$weekDay] . ' ' . $day . ' de ' . $months[$month - 1] . ', ' . $year;
+    }
 }
